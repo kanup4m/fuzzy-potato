@@ -1,0 +1,127 @@
+.introduction-one {
+  display: flex;
+  margin-bottom: $section-spacing;
+
+  @include mq(md) {
+    flex-wrap: wrap;
+  }
+
+  &-item {
+    width: 33.3333333%;
+    flex-grow: 1;
+    transition: $transition;
+
+    background: {
+      size: cover;
+      position: center;
+      repeat: no-repeat;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: emCal(16, 35);
+    overflow: hidden;
+
+    img {
+      @include imgCenter(emCal(16, 265), emCal(16, 370), contain);
+      margin-bottom: emCal(16, 35);
+    }
+
+    .ant-btn {
+      height: emCal(16, 45);
+      line-height: emCal(16, 45);
+      padding: 0 emCal(16, 30);
+      opacity: 0;
+      transform: translateY(50px);
+      text-transform: uppercase;
+      font-family: getFontWeight(600);
+
+      @include mq(md) {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    &:hover {
+      flex-grow: 1;
+      width: 50%;
+
+      .ant-btn {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @include mq(md) {
+      width: 100%;
+    }
+  }
+
+  // @include md(md) {
+  //   flex-direction: column;
+  // }
+}
+
+
+
+
+.introduction-six {
+  margin-bottom: $section-spacing;
+
+  .section-title {
+    h2 {
+      font-size: emCal(16, 36);
+    }
+  }
+
+  &-content {
+    &__item {
+      height: emCal(16, 330);
+      position: relative;
+      overflow: hidden;
+      border-radius: emCal(16, 5);
+
+      background: {
+        size: cover;
+        position: center;
+      }
+
+      &:hover {
+        main {
+          top: 0;
+          left: 0;
+        }
+      }
+
+      main {
+        transition: $transition;
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include mq(md) {
+          top: 0;
+          left: 0;
+        }
+
+        h3 {
+          @include typo($fsz: emCal(16, 22), $fw: 600, $color: #fff);
+          margin-bottom: emCal(22, 15);
+        }
+
+        h5 {
+          @include typo($fsz: emCal(16, 12), $fw: 500, $color: #fff, $up: true);
+          margin-bottom: emCal(13, 30);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "HOME": {
+    "title": "Home",
+    "href": "/"
+  },
+  "ACTIVITIES": {
+    "title": "Activities",
+    "href": "#",
+    "subMenu": [
+      {
+        "title": "Panch MahaAbhiyan",
+        "href": "activities/mahaAbhiyan"
+      },
+      {
+        "title": "Tree Plantation",
+        "href": "activities/plantation"
+      },
+      {
+        "title": "Women Awakening",
+        "href": "activities/awakening"
+      }
+    ]
+  },
+  "GALLERY": {
+    "title": "Gallery",
+    "href": "/gallery"
+  },
+  "DOWNLOADS": {
+    "title": "Downloads",
+    "href": "#",
+    "subMenu": [
+      {
+        "title": "Yug Srijeta Form",
+        "href": "downloads/form"
+      },
+      {
+        "title": "Books",
+        "href": "downloads/books"
+      },
+      {
+        "title": "ID Card",
+        "href": "downloads/card"
+      }
+    ]
+  },
+  "ABOUT": {
+    "title": "About us",
+    "href": "/about-us"
+  },
+  "DONATE": {
+    "title": "Donate",
+    "href": "/donate"
+  }
+}
