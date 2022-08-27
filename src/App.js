@@ -1,40 +1,62 @@
-import 'antd/dist/antd.min.css';
+import "antd/dist/antd.min.css";
 import "./styles/styles.scss";
-import Login from './pages/auth/login'
-import Register from './pages/auth/register'
-import Error from './pages/error'
-import Gallery from './pages/others/Gallery'
-import Homepage from './pages/homepage';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import Donate from './pages/others/Donate';
-import About from './pages/others/About';
-
+import Login from "./pages/auth/login";
+import Register from "./pages/auth/register";
+import Error from "./pages/error";
+import Gallery from "./pages/others/Gallery";
+import Homepage from "./pages/homepage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Donate from "./pages/others/Donate";
+import About from "./pages/others/About";
+import IDCard from "./pages/others/Card";
+import Forms from "./pages/others/Form";
+import Books from "./pages/others/Books";
+import Terms from "./pages/extras/terms";
+import Privacy from "./pages/extras/policy";
+import Refund from "./pages/extras/return";
+import ProtectedRoute from "./pages/auth/ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="auth/login" element={<Login />} />
-        <Route path="auth/register" element={<Register />} />
-        <Route path="gallery" element={<Gallery />} />
-        <Route path="donate" element={<Donate />} />
-        <Route path="about-us" element={<About />} />
-        <Route path="downloads/form" element={<Donate />} />
-        <Route path="downloads/books" element={<About />} />
-        <Route path="downloads/card" element={<Donate />} />
-        <Route path="about-us" element={<About />} />
 
+        {/* ---------------- Auth ---------------- */}
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/register" element={<Register />} />
+
+        {/* -------------- Others --------------------- */}
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/about-us" element={<About />} />
+
+        {/* ----------------- Downloads ------------------ */}
+        <Route path="/downloads/form" element={<Forms />} />
+        <Route path="/downloads/books" element={<Books />} />
         <Route
-          path="*"
+          path="/downloads/card"
           element={
-            <Error />
+            <ProtectedRoute>
+              {" "}
+              <IDCard />{" "}
+            </ProtectedRoute>
           }
         />
+
+        {/* ------------------- Activities -------------------- */}
+        <Route path="/activities/mahaAbhiyan" element={<About />} />
+        <Route path="/activities/plantation" element={<About />} />
+        <Route path="/activities/awakening" element={<About />} />
+
+        {/* ---------------------- Extras ------------------------ */}
+
+        <Route path="/terms-and-conditions" element={<Terms />} />
+        <Route path="/privacy-policy" element={<Privacy />} />
+        <Route path="/refund-policy" element={<Refund />} />
+
+        {/* ---------------------- Error 404 ------------------ */}
+        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );

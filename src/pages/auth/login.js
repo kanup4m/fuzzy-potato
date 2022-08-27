@@ -1,35 +1,34 @@
-import { Breadcrumb, Form, Input, Button, message, Row, Col } from "antd";
+import { Form, Input, Button, message, Row, Col } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 import LayoutOne from "../../components/layout/LayoutOne";
 import Container from "../../components/other/Container";
 
 const Login = () => {
-
   const [loadings, setLoadings] = useState(false);
 
   const onFinish = (values) => {
-    setLoadings(true)
+    setLoadings(true);
     console.log("Success:", values);
-    axios.post('http://3.93.234.190:3000/users/login', values)
+    axios
+      .post("http://3.93.234.190:3000/users/login", values)
       .then(function (response) {
-        const result = 'token' in response.data;
+        const result = "token" in response.data;
         message.success(`Welcome`);
         if (result) {
-          const { token } = response.data
-          localStorage.setItem('token', token)
+          const { token } = response.data;
+          localStorage.setItem("token", token);
           console.log(token);
-          setLoadings(false)
-          window.location = '/';
+          setLoadings(false);
+          window.location = "/";
         }
       })
       .catch(function (error) {
         console.log(error.response.data.message);
         message.error(`${error.response.data.message}`);
-        setLoadings(false)
+        setLoadings(false);
       });
-
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -39,7 +38,6 @@ const Login = () => {
   return (
     <LayoutOne title="Login">
       <Container>
-
         <div className="auth">
           <Row>
             <Col xs={24} md={{ span: 12, offset: 6 }}>

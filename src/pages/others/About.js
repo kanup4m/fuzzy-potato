@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import LayoutOne from "../../components/layout/LayoutOne";
 import SectionTitle from "../../components/other/SectionTitle";
-
 
 export default function Abut() {
     return (
@@ -14,7 +13,6 @@ export default function Abut() {
                 <PartnerOne />
 
             </Container> */}
-
         </LayoutOne>
     );
 }

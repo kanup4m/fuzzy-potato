@@ -1,13 +1,66 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@media only screen and (max-width: 600px) {
+  .introduction-two-image > img {
+    width: 100%;
+  }
+
+  .dow-three-wrapper {
+    background-size: contain !important;
+    height: 27vh !important;
+  }
+}
+
+.anupam {
+  background-image: url("/public/assets/images/sections/banner/four/one.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 0;
+  padding-top: 66.64%;
+  /* (img-height / img-width * container-width) */
+  /* (img-height / img-width * container-width) */
+  /* (853 / 1280 * 100) */
+}
+
+.background {
+  background-image: url("../public/assets/images/sections/banner/four/one.jpg");
+  height: 16em;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.background > h4 {
+  color: #000;
+  font-size: 2em;
+  font-family: sans-serif;
+}
+
+.mobile-img {
+  width: 25%;
+  padding-top: 4em;
+}
+
+.background-text > p {
+  font-size: 0.5em;
+}
+
+.background-text {
+  padding-top: 6em;
 }

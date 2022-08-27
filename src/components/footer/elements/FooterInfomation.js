@@ -7,12 +7,7 @@ export default function FooterInfomation() {
   return (
     <div className="footer-info">
       <Link to={process.env.PUBLIC_URL + "/"}>
-        <a className="footer-info__logo">
-          <img
-            src="../../../assets/images/log.png"
-            alt="Mandir Logo"
-          />
-        </a>
+        <span style={{ fontWeight: "800" }}>Yug Srijeta</span>
       </Link>
       <ul>
         <li>Address: VG44+CQ5, Nanpara, Uttar Pradesh 271865</li>

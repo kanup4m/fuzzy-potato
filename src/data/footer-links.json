@@ -4,32 +4,15 @@
     "items": [
       {
         "title": "Yug Srijeta Form",
-        "href": "/other/contact-us"
+        "href": "/downloads/form"
       },
       {
         "title": "Books",
-        "href": "#"
+        "href": "/downloads/books"
       },
       {
         "title": "ID Card",
-        "href": "#"
-      }
-    ]
-  },
-  {
-    "title": "Activities",
-    "items": [
-      {
-        "title": "Panch MahaAbhiyan",
-        "href": "#"
-      },
-      {
-        "title": "Tree Plantation",
-        "href": "/other/contact-us"
-      },
-      {
-        "title": "Women Awakening",
-        "href": "/other/contact-us"
+        "href": "/downloads/card"
       }
     ]
   },
@@ -47,6 +30,19 @@
       {
         "title": "Return/Refund Policy",
         "href": "/refund-policy"
+      }
+    ]
+  },
+  {
+    "title": "Auth",
+    "items": [
+      {
+        "title": "Login",
+        "href": "/auth/login"
+      },
+      {
+        "title": "Register",
+        "href": "/auth/register"
       }
     ]
   }

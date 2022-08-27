@@ -17,7 +17,7 @@
     margin-bottom: remCal(60);
 
     &__item {
-      $dale-item-margin: emCal(16, 15);
+      $dale-item-margin: emCal(6, 15);
       display: flex;
       align-items: center;
 
@@ -161,7 +161,7 @@
   margin-bottom: $section-spacing;
 
   &-image {
-    padding: 0 emCal(16, 15);
+    padding: 0 13em;
     text-align: center;
 
     @include mq(md) {
@@ -169,12 +169,15 @@
     }
 
     img {
-      @include imgCenter($width: emCal(16, 450), $type: contain);
+      @include imgCenter($width: emCal(27, 450), $type: contain);
     }
   }
 
   &-content {
-    padding: 0 emCal(16, 15);
+    padding: 0 emCal(7, 15);
+    position: relative;
+    top: 4em;
+    left: 8em;
 
     h5 {
       @include typo($fsz: emCal(16, 30), $color: setColor(green), $fw: 600);
@@ -227,7 +230,13 @@
   }
 
   &-wrapper {
-    padding: emCal(16, 50) 0;
+    padding-top: 18.6em;
+    padding-bottom: 6em;
     background-color: #fff3dd;
+    background-image: url('../../../public/assets/images/sections/banner/four/one.jpg');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
   }
 }

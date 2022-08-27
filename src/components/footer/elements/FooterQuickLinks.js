@@ -2,7 +2,6 @@ import React from "react";
 import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
 
-
 import footerLinks from "../../../data/footer-links.json";
 
 function FooterQuickLinks({ colSize }) {
@@ -16,10 +15,9 @@ function FooterQuickLinks({ colSize }) {
               <ul>
                 {item.items.map((link, index) => (
                   <li key={index}>
-                    {/* <Link to={process.env.PUBLIC_URL + link.href}> */}
-                    <a> {link.title}</a>
-                    {/* </Link> */}
-                    {" "}
+                    <Link to={process.env.PUBLIC_URL + link.href}>
+                      <a> {link.title}</a>
+                    </Link>{" "}
                   </li>
                 ))}
               </ul>

@@ -11,14 +11,9 @@ export default function MenuOne() {
       <Container>
         <div className="menu-wrapper">
           <MobileMenuOpener />
-          {/* <Link to={process.env.PUBLIC_URL + "/"}> */}
-          <a className="menu-logo">
-            <img
-              src="../../../assets/images/log.png"
-              alt="Mandir logo"
-            />
-          </a>
-          {/* </Link> */}
+          <Link to={process.env.PUBLIC_URL + "/"}>
+            <p style={{ fontWeight: "800" }}>Yug Srijeta</p>
+          </Link>
           <Navigator />
         </div>
       </Container>

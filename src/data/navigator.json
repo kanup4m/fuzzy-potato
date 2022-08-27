@@ -5,19 +5,19 @@
   },
   "ACTIVITIES": {
     "title": "Activities",
-    "href": "#",
+    "href": "",
     "subMenu": [
       {
         "title": "Panch MahaAbhiyan",
-        "href": "activities/mahaAbhiyan"
+        "href": "/activities/mahaAbhiyan"
       },
       {
         "title": "Tree Plantation",
-        "href": "activities/plantation"
+        "href": "/activities/plantation"
       },
       {
         "title": "Women Awakening",
-        "href": "activities/awakening"
+        "href": "/activities/awakening"
       }
     ]
   },
@@ -31,15 +31,15 @@
     "subMenu": [
       {
         "title": "Yug Srijeta Form",
-        "href": "downloads/form"
+        "href": "/downloads/form"
       },
       {
         "title": "Books",
-        "href": "downloads/books"
+        "href": "/downloads/books"
       },
       {
         "title": "ID Card",
-        "href": "downloads/card"
+        "href": "/downloads/card"
       }
     ]
   },
@@ -50,5 +50,13 @@
   "DONATE": {
     "title": "Donate",
     "href": "/donate"
+  },
+  "LOGIN": {
+    "title": "Login",
+    "href": "/auth/login"
+  },
+  "SIGNUP": {
+    "title": "Signup",
+    "href": "/auth/register"
   }
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Row, Col } from "antd";
 import Slider from "react-slick";
 import classNames from "classnames";
-import './index.css'
+import "./index.css";
 
 import { NextArrow, PrevArrow } from "../../other/SliderArrow";
 
@@ -16,12 +16,10 @@ function HeroSliderOne({ data }) {
     slidesToScroll: 1,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
-
   };
   const beforeChange = (oldIndex, newIndex) => {
     setNextSlideIndex(newIndex);
   };
-
 
   return (
     <div className="hero-slider -carousel -style-one">
@@ -38,17 +36,11 @@ function HeroSliderOne({ data }) {
             })}`}
           >
             <div className="hero-slider-background">
-              <img
-                src={item.background}
-                alt="Hero slider background"
-              />
+              <img src={item.background} alt="Hero slider background" />
             </div>
             <div className="hero-slider-content-wrapper">
               <Row align="middle" gutter={30}>
-
-                <Col sm={12}>
-
-                </Col>
+                <Col sm={12}></Col>
               </Row>
             </div>
           </div>

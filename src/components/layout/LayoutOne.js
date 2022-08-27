@@ -3,8 +3,9 @@ import { BackTop } from "antd";
 
 import HeaderOne from "../header/headerOne";
 import Footer from "../footer/Footer";
-import withHeaderScroll from "../../utils/withHeaderScroll"
+import withHeaderScroll from "../../utils/withHeaderScroll";
 import FooterFluid from "../footer/FooterFluid";
+import Container from "../other/Container";
 
 const ScrolledHeader = withHeaderScroll(HeaderOne);
 
@@ -15,9 +16,16 @@ function LayoutOne({ title, children, headerClass, footerClass }) {
         <title>{title}</title>
       </h1>
       <ScrolledHeader className={headerClass} />
+      <br />
+
       {children}
-      <Footer className={footerClass} />
+      <br />
+      <br />
+      <Container>
+        <Footer className={footerClass} />
+      </Container>
       <FooterFluid />
+
       <BackTop />
     </>
   );
