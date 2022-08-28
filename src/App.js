@@ -5,7 +5,7 @@ import Register from "./pages/auth/register";
 import Error from "./pages/error";
 import Gallery from "./pages/others/Gallery";
 import Homepage from "./pages/homepage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Donate from "./pages/others/Donate";
 import About from "./pages/others/About";
 import IDCard from "./pages/others/Card";
@@ -18,7 +18,7 @@ import ProtectedRoute from "./pages/auth/ProtectedRoute";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
 
@@ -58,7 +58,7 @@ function App() {
         {/* ---------------------- Error 404 ------------------ */}
         <Route path="*" element={<Error />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
