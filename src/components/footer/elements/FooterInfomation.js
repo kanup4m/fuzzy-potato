@@ -6,7 +6,7 @@ import SocialIcons from "../../other/SocialIcons";
 export default function FooterInfomation() {
   return (
     <div className="footer-info">
-      <Link to={process.env.PUBLIC_URL + "/"}>
+      <Link to={"/"}>
         <span style={{ fontWeight: "800" }}>Yug Srijeta</span>
       </Link>
       <ul>

@@ -335,7 +335,7 @@ const Register = () => {
                           Register
                         </Button>
                         <Button type="link">
-                          <Link to={process.env.PUBLIC_URL + "/auth/login"}>
+                          <Link to={"/auth/login"}>
                             <a>OR Login</a>
                           </Link>
                         </Button>

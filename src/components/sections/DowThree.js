@@ -52,7 +52,7 @@ function DowThree() {
             <Col md={10}>
               <div className="dow-three-image">
                 <img
-                  src={process.env.PUBLIC_URL + "/assets/images/image.png"}
+                  src={"/assets/images/image.png"}
                   alt="Dale of the week image"
                 />
               </div>

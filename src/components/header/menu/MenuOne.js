@@ -11,7 +11,7 @@ export default function MenuOne() {
       <Container>
         <div className="menu-wrapper">
           <MobileMenuOpener />
-          <Link to={process.env.PUBLIC_URL + "/"}>
+          <Link to={"/"}>
             <p style={{ fontWeight: "800" }}>Yug Srijeta</p>
           </Link>
           <Navigator />

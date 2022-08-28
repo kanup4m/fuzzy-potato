@@ -19,13 +19,12 @@ export default function error() {
                   been removed or name changed
                 </p>
                 <Button type="primary" shape="round">
-                  <Link to={process.env.PUBLIC_URL + "/"}>
+                  <Link to={"/"}>
                     <a>Go to homepage</a>
                   </Link>
                 </Button>
               </div>
             </Col>
-
           </Row>
         </div>
       </Container>

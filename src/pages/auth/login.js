@@ -25,13 +25,14 @@ const Login = () => {
         }
       })
       .catch(function (error) {
+        setLoadings(false);
         console.log(error.response.data.message);
         message.error(`${error.response.data.message}`);
-        setLoadings(false);
       });
   };
 
   const onFinishFailed = (errorInfo) => {
+    setLoadings(false);
     console.log("Failed:", errorInfo);
   };
 
@@ -87,7 +88,7 @@ const Login = () => {
                       Signin
                     </Button>
                     <Button type="link">
-                      <Link to={process.env.PUBLIC_URL + "/auth/register"}>
+                      <Link to={"/auth/register"}>
                         <a>OR CREATE AN ACCOUNT</a>
                       </Link>
                     </Button>

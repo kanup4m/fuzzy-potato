@@ -15,7 +15,7 @@ function FooterQuickLinks({ colSize }) {
               <ul>
                 {item.items.map((link, index) => (
                   <li key={index}>
-                    <Link to={process.env.PUBLIC_URL + link.href}>
+                    <Link to={link.href}>
                       <a> {link.title}</a>
                     </Link>{" "}
                   </li>

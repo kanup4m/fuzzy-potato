@@ -43,7 +43,7 @@ function MobileNavigator() {
         </SubMenu> */}
 
         <Menu.Item key="gallery">
-          <Link to={process.env.PUBLIC_URL + navigatorData.GALLERY.href}>
+          <Link to={navigatorData.GALLERY.href}>
             <a
               href="https://ant.design"
               target="_blank"
