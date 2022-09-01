@@ -25,7 +25,7 @@ const Register = () => {
         </div>
       ),
       onOk() {
-        // window.location = "/";
+        window.location = "/";
       },
     });
   };
