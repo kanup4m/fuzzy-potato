@@ -8,6 +8,12 @@ function MobileNavigator() {
   const { SubMenu } = Menu;
 
   const [token, setToken] = useState(false);
+  const [admin, setAdmin] = useState()
+
+  setTimeout(function () {
+    let data = JSON.parse(localStorage.getItem('isAdmin'));
+    setAdmin(data)
+  }, 50);
 
   useEffect(() => {
     setToken(localStorage.getItem("token"));
@@ -19,7 +25,7 @@ function MobileNavigator() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
     navigate("/", { replace: true });
     window.location.reload();
   };
@@ -89,9 +95,20 @@ function MobileNavigator() {
         </Menu.Item>
 
         {token ? (
-          <Menu.Item key="logout">
-            <a onClick={handleLogout}>Logout</a>
-          </Menu.Item>
+          admin == true ? (<>
+            <Menu.Item key="logout">
+              <a onClick={handleLogout}>Logout</a>
+            </Menu.Item>
+            <Menu.Item key="login">
+              <Link to="/admin">
+                <a>Admin Panel</a>
+              </Link>
+            </Menu.Item>
+          </>) : (
+            <Menu.Item key="logout">
+              <a onClick={handleLogout}>Logout</a>
+            </Menu.Item>
+          )
         ) : (
           <>
             {" "}
@@ -100,7 +117,7 @@ function MobileNavigator() {
                 <a>{navigatorData.LOGIN.title}</a>
               </Link>
             </Menu.Item>
-            <Menu.Item key="signup">
+            <Menu.Item key="register">
               <Link to={navigatorData.SIGNUP.href}>
                 <a>{navigatorData.SIGNUP.title}</a>
               </Link>

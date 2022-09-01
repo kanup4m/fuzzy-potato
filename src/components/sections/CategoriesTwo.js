@@ -3,24 +3,23 @@ import Container from "../other/Container";
 import { Col, Row, Empty } from "antd";
 import { Link } from "react-router-dom";
 
-function CategoriesOne({ data }) {
+function CategoriesTwo({ data }) {
   return (
     <div className="categories-one">
       <Container>
-        <Row gutter={[{ sm: 0, md: 15 }]}>
+        <Row gutter={[{ sm: 15, md: 15 }]}>
           {data && data.length > 0 ? (
             data.map((item, index) => (
-              <Col key={index} xs={24} sm={24} md={24}>
+              <Col key={index} xs={24} sm={12} md={8}>
                 <Link to={"#"}>
                   <a href={"#"} className="categories-one-item">
                     <div className="categories-one-item__image">
-                      <span>
-                        <img src={item.image.background} alt="Category image" />
-                      </span>
-                      <img src={item.image.main} alt="Category image" />
+                      <img src={item.profileImage} alt="Category image" />
                     </div>
-                    <h2>{item.title}</h2>
-                    <p>{item.download} Form</p>
+                    <h2>Name : {item.name}</h2>
+                    <p>Pincode : {item.pinCode} </p>
+                    <p>District : {item.district} </p>
+                    <p>State : {item.state} </p>
                   </a>
                 </Link>
               </Col>
@@ -34,4 +33,4 @@ function CategoriesOne({ data }) {
   );
 }
 
-export default React.memo(CategoriesOne);
+export default React.memo(CategoriesTwo);

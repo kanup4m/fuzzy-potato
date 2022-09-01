@@ -7,13 +7,19 @@ function Navigator() {
   let navigate = useNavigate();
 
   const [token, setToken] = useState(false);
+  const [admin, setAdmin] = useState()
+
+  setTimeout(function () {
+    let data = JSON.parse(localStorage.getItem('isAdmin'));
+    setAdmin(data)
+  }, 50);
 
   useEffect(() => {
     setToken(localStorage.getItem("token"));
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
     navigate("/", { replace: true });
     window.location.reload();
   };
@@ -78,11 +84,27 @@ function Navigator() {
       </li>
 
       {token ? (
-        <li className="navigation-item">
-          <a className="navigation-item__title" onClick={handleLogout}>
-            Logout
-          </a>
-        </li>
+
+        admin == true ? (<>
+          <li className="navigation-item">
+            <a className="navigation-item__title" onClick={handleLogout}>
+              Logout
+            </a>
+          </li>
+          <li className="navigation-item">
+            <Link to="/admin">
+              <a className="navigation-item_title">Admin Panel</a>
+            </Link>
+          </li>
+        </>) : (
+          <li className="navigation-item">
+            <a className="navigation-item__title" onClick={handleLogout}>
+              Logout
+            </a>
+          </li >
+        )
+
+
       ) : (
         <>
           <li className="navigation-item">

@@ -56,7 +56,7 @@
     "href": "/auth/login"
   },
   "SIGNUP": {
-    "title": "Signup",
+    "title": "Register",
     "href": "/auth/register"
   }
 }

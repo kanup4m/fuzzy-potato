@@ -1,4 +1,4 @@
-import { Form, Input, Button, Upload, Row, Col, Select, message } from "antd";
+import { Form, Input, Button, Upload, Row, Col, Select, message, Modal, Space, DatePicker } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import axios from "axios";
@@ -12,6 +12,31 @@ import Container from "../../components/other/Container";
 const Register = () => {
   const [loadings, setLoadings] = useState(false);
   const [path, setPath] = useState("");
+  const [date, setDate] = useState("");
+
+  const info = () => {
+    Modal.success({
+      okText: 'OK',
+      title: "Registration Successful",
+      content: (
+        <div>
+          <p>Your details are under verification.</p>
+          <p>Please login after 48 hours to download ID Card.</p>
+        </div>
+      ),
+      onOk() {
+        // window.location = "/";
+      },
+    });
+  };
+
+  const error = () => {
+    Modal.error({
+      okText: 'Close',
+      title: "Something went wrong",
+      onOk() { },
+    });
+  };
 
   const props = {
     name: "profileImage",
@@ -28,50 +53,70 @@ const Register = () => {
     },
   };
 
+  const dateChange = (date, dateString) => {
+    console.log(dateString);
+    setDate(dateString)
+  };
+
   const onFinish = (values) => {
-    var image = { profileImage: path };
+    var image = { profileImage: path, dob: date };
     values = { ...values, ...image };
     setLoadings(true);
+    if (values.address === undefined || values.address.length === 0) {
+      delete values.address
+    }
+    if (values.email === undefined || values.email.length === 0) {
+      delete values.email
+    }
+
     console.log("Success:", values);
 
     axios
       .post("http://3.93.234.190:3000/users/signup", values)
       .then((res) => {
-        console.log(res);
-        if (res.status === 200) {
-          const loginData = ["adhaarNumber", "password"];
-          const filteredData = Object.keys(values)
-            .filter((key) => loginData.includes(key))
-            .reduce((obj, key) => {
-              obj[key] = values[key];
-              return obj;
-            }, {});
-
-          axios
-            .post("http://3.93.234.190:3000/users/login", filteredData)
-            .then(function (response) {
-              const result = "token" in response.data;
-              message.success(`Welcome`);
-              if (result) {
-                const { token } = response.data;
-                localStorage.setItem("token", token);
-                console.log(token);
-                setLoadings(false);
-                window.location = "/downloads/card";
-              }
-            });
-        }
+        console.log(res)
         setLoadings(false);
+        info()
+        // const loginData = ["adhaarNumber", "password"];
+        // const filteredData = Object.keys(values)
+        //   .filter((key) => loginData.includes(key))
+        //   .reduce((obj, key) => {
+        //     obj[key] = values[key];
+        //     return obj;
+        //   }, {});
+
+        // axios
+        //   .post("http://3.93.234.190:3000/users/login", filteredData)
+        //   .then(function (response) {
+        //     const result = "token" in response.data;
+        //     message.success(`Welcome`);
+        //     if (result) {
+        //       const { token } = response.data;
+        //       localStorage.setItem("token", token);
+        //       console.log(token);
+        //       setLoadings(false);
+        //       window.location = "/downloads/card";
+        //     }
+        //   });
       })
       .catch((err) => {
         setLoadings(false);
-        console.log(err);
+        if (err.response.data.message !== null || err.response.data.message !== undefined) {
+          message.error(err.response.data.message);
+        }
+        else {
+          error()
+        }
+
       });
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
+
+
   return (
     <LayoutOne title="Register">
       <Container>
@@ -130,35 +175,21 @@ const Register = () => {
                           addonBefore={"+91"}
                           style={{ width: "100%" }}
                           size="large"
+                          maxLength="10"
                         />
-                      </Form.Item>
-                    </Col>
-                    <Col span={24}>
-                      <Form.Item
-                        label="Adhaar Number"
-                        name="adhaarNumber"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please enter your Adhaar!",
-                          },
-                        ]}
-                      >
-                        <Input maxLength="12" />
                       </Form.Item>
                     </Col>
                     <Col span={24} sm={12}>
                       <Form.Item
-                        label="Age"
-                        name="age"
+                        label="Date of Birth"
                         rules={[
                           {
                             required: true,
-                            message: "Please enter your full name",
+                            message: "Please enter your DOB",
                           },
                         ]}
                       >
-                        <Input />
+                        <DatePicker size="large" onChange={dateChange} />
                       </Form.Item>
                     </Col>
                     <Col span={24} sm={12}>
@@ -174,7 +205,8 @@ const Register = () => {
                       >
                         <Select
                           showSearch
-                          placeholder="Select"
+                          size="large"
+                          placeholder="Select Gender"
                           optionFilterProp="children"
                           filterOption={(input, option) =>
                             option.children
@@ -211,7 +243,7 @@ const Register = () => {
                           }
                         >
                           {state.state.map((item) => (
-                            <Select.Option value={item}>{item}</Select.Option>
+                            <Select.Option key={item} value={item}>{item}</Select.Option>
                           ))}
                         </Select>
                       </Form.Item>
@@ -252,7 +284,7 @@ const Register = () => {
                         rules={[
                           {
                             required: true,
-                            message: "Please enter your full name",
+                            message: "Please enter your pincode",
                           },
                         ]}
                       >
@@ -261,7 +293,12 @@ const Register = () => {
                     </Col>
 
                     <Col span={24} sm={12}>
-                      <Form.Item label="Upload">
+                      <Form.Item label="Upload" rules={[
+                        {
+                          required: true,
+                          message: "Please upload an image",
+                        },
+                      ]}>
                         <Upload {...props} maxCount={1} accept="image/*">
                           <Button icon={<UploadOutlined />}>
                             Click to Upload
@@ -270,18 +307,21 @@ const Register = () => {
                       </Form.Item>
                     </Col>
                     <Col span={24}>
-                      <Form.Item label="Full Address" name="address">
+                      <Form.Item label="Full Address" name="address" requiredMark="optional">
                         <Input.TextArea
                           autoSize
                           allowClear="true"
                           size="large"
+                          placeholder="Optional"
                         />
                       </Form.Item>
-                      <Col span={24}>
-                        <Form.Item label="Email" name="email">
-                          <Input />
-                        </Form.Item>
-                      </Col>
+                    </Col>
+                    <Col span={24}>
+                      <Form.Item label="Email" name="email" requiredMark="optional" >
+                        <Input size="large"
+                          placeholder="Optional"
+                        />
+                      </Form.Item>
                     </Col>
                     <Col span={24}>
                       <Form.Item

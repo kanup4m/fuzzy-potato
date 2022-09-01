@@ -1,4 +1,4 @@
-import { Form, Input, Button, message, Row, Col } from "antd";
+import { Form, Input, Button, message, Row, Col, Modal, Space } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -11,14 +11,17 @@ const Login = () => {
   const onFinish = (values) => {
     setLoadings(true);
     console.log("Success:", values);
+    localStorage.setItem('phoneNumber', values.phoneNumber)
     axios
       .post("http://3.93.234.190:3000/users/login", values)
       .then(function (response) {
         const result = "token" in response.data;
         message.success(`Welcome`);
         if (result) {
-          const { token } = response.data;
+          const { token, isApproved, isAdmin } = response.data;
           localStorage.setItem("token", token);
+          localStorage.setItem("isApproved", isApproved);
+          localStorage.setItem("isAdmin", isAdmin);
           console.log(token);
           setLoadings(false);
           window.location = "/";
@@ -36,6 +39,7 @@ const Login = () => {
     console.log("Failed:", errorInfo);
   };
 
+
   return (
     <LayoutOne title="Login">
       <Container>
@@ -51,8 +55,8 @@ const Login = () => {
                   onFinishFailed={onFinishFailed}
                 >
                   <Form.Item
-                    label="Adhaar Number"
-                    name="adhaarNumber"
+                    label="Mobile No."
+                    name="phoneNumber"
                     rules={[
                       {
                         required: true,
@@ -60,7 +64,7 @@ const Login = () => {
                       },
                     ]}
                   >
-                    <Input />
+                    <Input addonBefore={"+91"} maxLength="10" />
                   </Form.Item>
 
                   <Form.Item
@@ -75,14 +79,7 @@ const Login = () => {
                   >
                     <Input.Password />
                   </Form.Item>
-                  {/* <Form.Item
-                    className="form-functions"
-                    name="remember"
-                    valuePropName="checked"
-                  >
-                    <Checkbox>Remember me</Checkbox>
-                    <Button type="link">Forget your password</Button>
-                  </Form.Item> */}
+
                   <Form.Item className="form-submit">
                     <Button type="primary" htmlType="submit" loading={loadings}>
                       Signin

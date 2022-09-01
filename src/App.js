@@ -15,6 +15,8 @@ import Terms from "./pages/extras/terms";
 import Privacy from "./pages/extras/policy";
 import Refund from "./pages/extras/return";
 import ProtectedRoute from "./pages/auth/ProtectedRoute";
+import AdminProtected from "./pages/extras/AdminProtected";
+import Admin from "./pages/extras/admin";
 
 function App() {
   return (
@@ -54,6 +56,17 @@ function App() {
         <Route path="/terms-and-conditions" element={<Terms />} />
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/refund-policy" element={<Refund />} />
+
+        {/* ---------------------- Admin ------------------ */}
+        <Route
+          path="/admin"
+          element={
+            <AdminProtected>
+              {" "}
+              <Admin />{" "}
+            </AdminProtected>
+          }
+        />
 
         {/* ---------------------- Error 404 ------------------ */}
         <Route path="*" element={<Error />} />
