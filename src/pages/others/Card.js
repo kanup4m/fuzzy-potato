@@ -50,33 +50,45 @@ export default function IDCard() {
     html2canvas(node.current).then((canvas) => {
       // document.body.appendChild(canvas)
       var img = canvas.toDataURL("image/png");
-      if (isDesktop) {
-        var pdf = new jsPDF({
-          orientation: "landscape",
-          unit: "in",
-          format: [14, 14]
-        });
+      // if (isDesktop) {
+      //   var pdf = new jsPDF({
+      //     orientation: "landscape",
+      //     unit: "in",
+      //     format: [14, 14]
+      //   });
 
-        pdf.setFontSize(30)
-        pdf.text("ID Card", 6, 1);
-        pdf.addImage(img, 'JPEG', 0, 2);
-        // pdf.output('dataurlnewwindow');
-        pdf.save("IdCard.pdf");
+      //   pdf.setFontSize(30)
+      //   pdf.text("ID Card", 6, 1);
+      //   pdf.addImage(img, 'JPEG', 0, 2);
+      //   // pdf.output('dataurlnewwindow');
+      //   pdf.save("IdCard.pdf");
 
 
-      }
-      else {
-        var pdf = new jsPDF({
-          orientation: "potrait",
-          unit: "in",
-          format: [8, 8]
-        });
+      // }
+      // else {
+      //   var pdf = new jsPDF({
+      //     orientation: "potrait",
+      //     unit: "in",
+      //     format: [8, 8]
+      //   });
 
-        pdf.setFontSize(30)
-        pdf.text("ID Card", 3, 1);
-        pdf.addImage(img, 'JPEG', 0.2, 2);
-        pdf.save("IdCard.pdf");
-      }
+      //   pdf.setFontSize(30)
+      //   pdf.text("ID Card", 3, 1);
+      //   pdf.addImage(img, 'JPEG', 0.2, 2);
+      //   pdf.save("IdCard.pdf");
+      // }
+
+      var doc = new jsPDF({
+        orientation: 'l', // landscape
+        unit: 'pt', // points, pixels won't work properly
+        format: [canvas.width, canvas.height] // set needed dimensions for any element
+      });
+
+      doc.addImage(img, 'JPEG', 0, 0, canvas.width, canvas.height);
+
+
+      doc.save("IdCard.pdf");
+
 
       // document.write('<img src="'+img+'"/>');
       // var link = document.createElement("a");
@@ -131,8 +143,8 @@ export default function IDCard() {
                     <Col md={10}>
                       <div className="dow-three-image">
                         <img
-                          src={data.profileImage}
-                          alt="Dale of the week "
+                          src={`http://3.93.234.190:3000/${data.profileImage}`}
+                          alt="Profile Image"
                         />
                       </div>
                     </Col>
@@ -152,11 +164,12 @@ export default function IDCard() {
               </div>
               <img
                 className="mobile-img"
-                src={"/assets/images/image.png"}
-                alt="Dale of the week "
+                src={`http://3.93.234.190:3000/${data.profileImage}`}
+                alt="Profile Image "
               />
             </div>
           )}
+          <br />
 
           {isDesktop ? (
             <Button
