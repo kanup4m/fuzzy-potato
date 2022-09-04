@@ -16,13 +16,12 @@ const Login = () => {
       .post("http://3.93.234.190:3000/users/login", values)
       .then(function (response) {
         const result = "token" in response.data;
-        message.success(`Welcome`);
         if (result) {
           const { token, isApproved, isAdmin } = response.data;
           localStorage.setItem("token", token);
           localStorage.setItem("isApproved", isApproved);
           localStorage.setItem("isAdmin", isAdmin);
-          console.log(token);
+          message.success("Welcome");
           setLoadings(false);
           window.location = "/";
         }

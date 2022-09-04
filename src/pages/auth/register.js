@@ -13,6 +13,8 @@ const Register = () => {
   const [loadings, setLoadings] = useState(false);
   const [path, setPath] = useState("");
   const [date, setDate] = useState("");
+  const [fileList, setFileList] = useState([]);
+  const [uploading, setUploading] = useState(false);
 
   const info = () => {
     Modal.success({
@@ -38,19 +40,38 @@ const Register = () => {
     });
   };
 
-  const props = {
-    name: "profileImage",
-    action: "http://3.93.234.190:3000/upload/profileImage",
+  // const props = {
+  //   name: "profileImage",
+  //   action: "http://3.93.234.190:3000/upload/profileImage",
 
-    onChange(info) {
-      if (info.file.status === "done") {
-        message.success(`${info.file.name} file uploaded successfully`);
-        console.log(info.file.response.path);
-        setPath(info.file.response.path);
-      } else if (info.file.status === "error") {
-        message.error(`${info.file.name} file upload failed.`);
-      }
+  //   onChange(info) {
+  //     if (info.file.status === "done") {
+  //       message.success(`${info.file.name} file uploaded successfully`);
+  //       console.log(info.file.response.path);
+  //       setPath(info.file.response.path);
+  //     } else if (info.file.status === "error") {
+  //       message.error(`${info.file.name} file upload failed.`);
+  //     }
+  //   },
+  // };
+
+  const props = {
+    onRemove: (file) => {
+      const index = fileList.indexOf(file);
+      const newFileList = fileList.slice();
+      newFileList.splice(index, 1);
+      setFileList(newFileList);
     },
+    beforeUpload: (file) => {
+      if (file.size < 211979) {
+        setFileList([...fileList, file]);
+      }
+      else {
+        message.error(`Profile Image should be less than 200 kb`)
+      }
+      return false;
+    },
+    fileList,
   };
 
   const dateChange = (date, dateString) => {
@@ -59,62 +80,64 @@ const Register = () => {
   };
 
   const onFinish = (values) => {
-    var image = { profileImage: path, dob: date };
-    values = { ...values, ...image };
+
     setLoadings(true);
-    if (values.address === undefined || values.address.length === 0) {
-      delete values.address
-    }
-    if (values.email === undefined || values.email.length === 0) {
-      delete values.email
-    }
 
-    console.log("Success:", values);
+    const formData = new FormData();
+    formData.append('profileImage', fileList[0]);
+    setUploading(true);
 
-    axios
-      .post("http://3.93.234.190:3000/users/signup", values)
+    fetch('http://3.93.234.190:3000/upload/profileImage', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((res) => res.json())
       .then((res) => {
-        console.log(res)
-        setLoadings(false);
-        info()
-        // const loginData = ["adhaarNumber", "password"];
-        // const filteredData = Object.keys(values)
-        //   .filter((key) => loginData.includes(key))
-        //   .reduce((obj, key) => {
-        //     obj[key] = values[key];
-        //     return obj;
-        //   }, {});
+        setFileList([]);
+        console.log(res.path)
+        var image = { profileImage: res.path, dob: date };
+        values = { ...values, ...image };
+        if (values.address === undefined || values.address.length === 0) {
+          delete values.address
+        }
+        if (values.email === undefined || values.email.length === 0) {
+          delete values.email
+        }
 
-        // axios
-        //   .post("http://3.93.234.190:3000/users/login", filteredData)
-        //   .then(function (response) {
-        //     const result = "token" in response.data;
-        //     message.success(`Welcome`);
-        //     if (result) {
-        //       const { token } = response.data;
-        //       localStorage.setItem("token", token);
-        //       console.log(token);
-        //       setLoadings(false);
-        //       window.location = "/downloads/card";
-        //     }
-        //   });
+        console.log("Success:", values);
+
+        axios
+          .post("http://3.93.234.190:3000/users/signup", values)
+          .then((res) => {
+            console.log(res)
+            info()
+          })
+          .catch((err) => {
+            console.log(err)
+            if (err.response.data.error.message !== null || err.response.data.error.message !== undefined) {
+              message.error(err.response.data.error.message);
+            }
+            else {
+              error()
+            }
+          })
+          .finally(() => {
+            setLoadings(false);
+          });
+
       })
-      .catch((err) => {
+      .catch(() => {
+        message.error('Profile Image upload failed.');
+      })
+      .finally(() => {
+        setUploading(false);
         setLoadings(false);
-        if (err.response.data.message !== null || err.response.data.message !== undefined) {
-          message.error(err.response.data.message);
-        }
-        else {
-          error()
-        }
-
       });
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-
 
 
   return (
@@ -181,6 +204,7 @@ const Register = () => {
                     </Col>
                     <Col span={24} sm={12}>
                       <Form.Item
+                        name="dob"
                         label="Date of Birth"
                         rules={[
                           {
@@ -189,7 +213,7 @@ const Register = () => {
                           },
                         ]}
                       >
-                        <DatePicker size="large" onChange={dateChange} />
+                        <DatePicker size="large" onChange={dateChange} required />
                       </Form.Item>
                     </Col>
                     <Col span={24} sm={12}>
@@ -293,13 +317,13 @@ const Register = () => {
                     </Col>
 
                     <Col span={24} sm={12}>
-                      <Form.Item label="Upload" rules={[
+                      <Form.Item label="Upload" name="profileImage" rules={[
                         {
                           required: true,
                           message: "Please upload an image",
                         },
                       ]}>
-                        <Upload {...props} maxCount={1} accept="image/*">
+                        <Upload {...props} maxCount={1} accept="image/*" required>
                           <Button icon={<UploadOutlined />}>
                             Click to Upload
                           </Button>
