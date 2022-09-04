@@ -164,7 +164,7 @@ export default function IDCard() {
               </div>
               <img
                 className="mobile-img"
-                src={`3.93.234.190:3000/${data.profileImage}`}
+                src={`http://3.93.234.190:3000/${data.profileImage}`}
                 alt="Profile Image "
               />
             </div>
