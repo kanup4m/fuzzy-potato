@@ -143,7 +143,7 @@ export default function IDCard() {
                     <Col md={10}>
                       <div className="dow-three-image">
                         <img
-                          src={data.profileImage}
+                          src={`3.93.234.190:3000/${data.profileImage}`}
                           alt="Profile Image"
                         />
                       </div>
@@ -164,7 +164,7 @@ export default function IDCard() {
               </div>
               <img
                 className="mobile-img"
-                src={data.profileImage}
+                src={`3.93.234.190:3000/${data.profileImage}`}
                 alt="Profile Image "
               />
             </div>
