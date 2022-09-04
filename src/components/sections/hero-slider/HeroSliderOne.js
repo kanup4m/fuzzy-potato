@@ -14,6 +14,7 @@ function HeroSliderOne({ data }) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    adaptiveHeight: true,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
   };
@@ -36,7 +37,7 @@ function HeroSliderOne({ data }) {
             })}`}
           >
             <div className="hero-slider-background">
-              <img src={item.background} alt="Hero slider background" />
+              <img src={item} alt="Hero slider background" />
             </div>
             <div className="hero-slider-content-wrapper">
               <Row align="middle" gutter={30}>

@@ -24,7 +24,6 @@ code {
 }
 
 .anupam {
-  background-image: url("/public/assets/images/sections/banner/four/one.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
@@ -36,7 +35,6 @@ code {
 }
 
 .background {
-  background-image: url("../public/assets/images/sections/banner/four/one.jpg");
   height: 16em;
   display: flex;
   align-items: center;

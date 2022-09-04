@@ -20,7 +20,7 @@ export default function error() {
                 </p>
                 <Button type="primary" shape="round">
                   <Link to={"/"}>
-                    <a>Go to homepage</a>
+                    <h3>Go to homepage</h3>
                   </Link>
                 </Button>
               </div>

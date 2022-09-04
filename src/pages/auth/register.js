@@ -87,7 +87,7 @@ const Register = () => {
     formData.append('profileImage', fileList[0]);
     setUploading(true);
 
-    fetch('http://3.93.234.190:3000/upload/profileImage', {
+    fetch('http://3.93.234.190:3000/api/upload/profileImage', {
       method: 'POST',
       body: formData,
     })
@@ -107,7 +107,7 @@ const Register = () => {
         console.log("Success:", values);
 
         axios
-          .post("http://3.93.234.190:3000/users/signup", values)
+          .post("http://3.93.234.190:3000/api/users/signup", values)
           .then((res) => {
             console.log(res)
             info()

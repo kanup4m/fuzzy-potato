@@ -3,6 +3,7 @@ import React from "react";
 
 import Container from "../other/Container";
 import SectionTitle from "../other/SectionTitle";
+import Logo from '../../styles/images/logo.png'
 
 function Introduction() {
   return (
@@ -12,7 +13,7 @@ function Introduction() {
           <Row>
             <Col md={12}>
               <div className="introduction-two-image">
-                <img src="./../../assets/images/logo.png" alt="introduction" />
+                <img src={Logo} alt="introduction" />
               </div>
             </Col>
             <Col md={12}>

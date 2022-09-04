@@ -92,12 +92,6 @@
 .dow-two {
   margin-bottom: $section-spacing;
 
-  background: {
-    image: url("../../../public/assets/images/sections/dale-of-week/two/bg.png");
-    size: cover;
-    repeat: no-repeat;
-    position: center;
-  }
 
   padding: emCal(16, 50) 0;
 
@@ -232,7 +226,7 @@
     padding-top: 22.7em;
     padding-bottom: 6em;
     background-color: #fff3dd;
-    background-image: url('../../../public/assets/images/sections/banner/four/one.jpg');
+    background-image: url('../images/one.jpg');
     background-repeat: no-repeat;
     width: 100%;
     background-size: cover;
