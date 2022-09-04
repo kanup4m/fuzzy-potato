@@ -118,24 +118,24 @@ export default function IDCard() {
                         <div>
                           <div style={{ fontWeight: "800", fontSize: "20px" }}>
                             {" "}
-                            Reg. No: {data.regNo}
+                            Reg. No - {data.regNo}
                           </div>
                           <div style={{ fontWeight: "800", fontSize: "20px" }}>
                             {" "}
-                            Name: {data.name}
+                            Name - {data.name}
                           </div>
                           <div style={{ fontWeight: "800", fontSize: "20px" }}>
                             {" "}
-                            Father's Name: {data.fatherName}
+                            Father's Name - {data.fatherName}
                           </div>
                           <div style={{ fontWeight: "800", fontSize: "20px" }}>
-                            DOB : {data.dob}
+                            DOB  - {data.dob}
                           </div>
                           <div style={{ fontWeight: "800", fontSize: "20px" }}>
-                            Mobile No. : {data.phoneNumber}
+                            Mobile No.  - {data.phoneNumber}
                           </div>
                           <div style={{ fontWeight: "800", fontSize: "20px" }}>
-                            Address : {data.address}
+                            Address - {data.address}
                           </div>
                         </div>
                       </div>
@@ -143,7 +143,7 @@ export default function IDCard() {
                     <Col md={10}>
                       <div className="dow-three-image">
                         <img
-                          src={`http://3.93.234.190:3000/${data.profileImage}`}
+                          src={data.profileImage}
                           alt="Profile Image"
                         />
                       </div>
@@ -164,7 +164,7 @@ export default function IDCard() {
               </div>
               <img
                 className="mobile-img"
-                src={`http://3.93.234.190:3000/${data.profileImage}`}
+                src={data.profileImage}
                 alt="Profile Image "
               />
             </div>
