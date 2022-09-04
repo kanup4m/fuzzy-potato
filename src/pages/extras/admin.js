@@ -13,7 +13,7 @@ export default function Admin() {
     const [data, setData] = useState();
 
     useEffect(() => {
-        axios.get('http://3.93.234.190:3000/api/users/')
+        axios.get('http://185.201.8.18/api/users/')
             .then(function (response) {
                 // handle success
                 console.log(response.data);

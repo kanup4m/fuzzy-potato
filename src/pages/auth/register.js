@@ -107,7 +107,7 @@ const Register = () => {
         console.log("Success:", values);
 
         axios
-          .post("http://3.93.234.190:3000/api/users/signup", values)
+          .post("http://185.201.8.18/api/users/signup", values)
           .then((res) => {
             console.log(res)
             info()

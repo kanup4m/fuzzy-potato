@@ -1,7 +1,7 @@
 {
   "name": "antd-mandir",
   "version": "0.1.0",
-  "private": true,
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -19,7 +19,6 @@
     "swiper": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "http://3.93.234.190:3000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

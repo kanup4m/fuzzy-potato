@@ -13,7 +13,7 @@ const Login = () => {
     console.log("Success:", values);
     localStorage.setItem('phoneNumber', values.phoneNumber)
     axios
-      .post("http://3.93.234.190:3000/api/users/login", values)
+      .post("http://185.201.8.18/api/users/login", values)
       .then(function (response) {
         const result = "token" in response.data;
         if (result) {
