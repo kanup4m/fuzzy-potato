@@ -1,4 +1,16 @@
-import { Form, Input, Button, Upload, Row, Col, Select, message, Modal, Space, DatePicker } from "antd";
+import {
+  Form,
+  Input,
+  Button,
+  Upload,
+  Row,
+  Col,
+  Select,
+  message,
+  Modal,
+  Space,
+  DatePicker,
+} from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import axios from "axios";
@@ -18,7 +30,7 @@ const Register = () => {
 
   const info = () => {
     Modal.success({
-      okText: 'OK',
+      okText: "OK",
       title: "Registration Successful",
       content: (
         <div>
@@ -34,9 +46,9 @@ const Register = () => {
 
   const error = () => {
     Modal.error({
-      okText: 'Close',
+      okText: "Close",
       title: "Something went wrong",
-      onOk() { },
+      onOk() {},
     });
   };
 
@@ -65,9 +77,8 @@ const Register = () => {
     beforeUpload: (file) => {
       if (file.size < 211979) {
         setFileList([...fileList, file]);
-      }
-      else {
-        message.error(`Profile Image should be less than 200 kb`)
+      } else {
+        message.error(`Profile Image should be less than 200 kb`);
       }
       return false;
     },
@@ -76,58 +87,58 @@ const Register = () => {
 
   const dateChange = (date, dateString) => {
     console.log(dateString);
-    setDate(dateString)
+    setDate(dateString);
   };
 
   const onFinish = (values) => {
-
     setLoadings(true);
 
     const formData = new FormData();
-    formData.append('profileImage', fileList[0]);
+    formData.append("profileImage", fileList[0]);
     setUploading(true);
 
-    fetch('http://3.93.234.190:3000/api/upload/profileImage', {
-      method: 'POST',
+    fetch("https://185.201.8.18/api/upload/profileImage", {
+      method: "POST",
       body: formData,
     })
       .then((res) => res.json())
       .then((res) => {
         setFileList([]);
-        console.log(res.path)
+        console.log(res.path);
         var image = { profileImage: res.path, dob: date };
         values = { ...values, ...image };
         if (values.address === undefined || values.address.length === 0) {
-          delete values.address
+          delete values.address;
         }
         if (values.email === undefined || values.email.length === 0) {
-          delete values.email
+          delete values.email;
         }
 
         console.log("Success:", values);
 
         axios
-          .post("http://185.201.8.18/api/users/signup", values)
+          .post("https://185.201.8.18/api/users/signup", values)
           .then((res) => {
-            console.log(res)
-            info()
+            console.log(res);
+            info();
           })
           .catch((err) => {
-            console.log(err)
-            if (err.response.data.error.message !== null || err.response.data.error.message !== undefined) {
+            console.log(err);
+            if (
+              err.response.data.error.message !== null ||
+              err.response.data.error.message !== undefined
+            ) {
               message.error(err.response.data.error.message);
-            }
-            else {
-              error()
+            } else {
+              error();
             }
           })
           .finally(() => {
             setLoadings(false);
           });
-
       })
       .catch(() => {
-        message.error('Profile Image upload failed.');
+        message.error("Profile Image upload failed.");
       })
       .finally(() => {
         setUploading(false);
@@ -138,7 +149,6 @@ const Register = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-
 
   return (
     <LayoutOne title="Register">
@@ -213,7 +223,11 @@ const Register = () => {
                           },
                         ]}
                       >
-                        <DatePicker size="large" onChange={dateChange} required />
+                        <DatePicker
+                          size="large"
+                          onChange={dateChange}
+                          required
+                        />
                       </Form.Item>
                     </Col>
                     <Col span={24} sm={12}>
@@ -267,7 +281,9 @@ const Register = () => {
                           }
                         >
                           {state.state.map((item) => (
-                            <Select.Option key={item} value={item}>{item}</Select.Option>
+                            <Select.Option key={item} value={item}>
+                              {item}
+                            </Select.Option>
                           ))}
                         </Select>
                       </Form.Item>
@@ -317,13 +333,22 @@ const Register = () => {
                     </Col>
 
                     <Col span={24} sm={12}>
-                      <Form.Item label="Upload" name="profileImage" rules={[
-                        {
-                          required: true,
-                          message: "Please upload an image",
-                        },
-                      ]}>
-                        <Upload {...props} maxCount={1} accept="image/*" required>
+                      <Form.Item
+                        label="Upload"
+                        name="profileImage"
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please upload an image",
+                          },
+                        ]}
+                      >
+                        <Upload
+                          {...props}
+                          maxCount={1}
+                          accept="image/*"
+                          required
+                        >
                           <Button icon={<UploadOutlined />}>
                             Click to Upload
                           </Button>
@@ -331,7 +356,11 @@ const Register = () => {
                       </Form.Item>
                     </Col>
                     <Col span={24}>
-                      <Form.Item label="Full Address" name="address" requiredMark="optional">
+                      <Form.Item
+                        label="Full Address"
+                        name="address"
+                        requiredMark="optional"
+                      >
                         <Input.TextArea
                           autoSize
                           allowClear="true"
@@ -341,10 +370,12 @@ const Register = () => {
                       </Form.Item>
                     </Col>
                     <Col span={24}>
-                      <Form.Item label="Email" name="email" requiredMark="optional" >
-                        <Input size="large"
-                          placeholder="Optional"
-                        />
+                      <Form.Item
+                        label="Email"
+                        name="email"
+                        requiredMark="optional"
+                      >
+                        <Input size="large" placeholder="Optional" />
                       </Form.Item>
                     </Col>
                     <Col span={24}>

@@ -27,25 +27,24 @@ export default function IDCard() {
   });
 
   useEffect(() => {
-
-    let phoneNumber = localStorage.getItem('phoneNumber');
-    let token = localStorage.getItem('token');
-    axios.get('http://185.201.8.18/api/users/' + phoneNumber, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
+    let phoneNumber = localStorage.getItem("phoneNumber");
+    let token = localStorage.getItem("token");
+    axios
+      .get("https://185.201.8.18/api/users/" + phoneNumber, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then(function (response) {
         // handle success
         console.log(response);
-        setData(response.data)
+        setData(response.data);
       })
       .catch(function (error) {
         // handle error
         console.log(error);
-      })
-
-  }, [])
+      });
+  }, []);
   const Download = (e) => {
     html2canvas(node.current).then((canvas) => {
       // document.body.appendChild(canvas)
@@ -63,7 +62,6 @@ export default function IDCard() {
       //   // pdf.output('dataurlnewwindow');
       //   pdf.save("IdCard.pdf");
 
-
       // }
       // else {
       //   var pdf = new jsPDF({
@@ -79,16 +77,14 @@ export default function IDCard() {
       // }
 
       var doc = new jsPDF({
-        orientation: 'l', // landscape
-        unit: 'pt', // points, pixels won't work properly
-        format: [canvas.width, canvas.height] // set needed dimensions for any element
+        orientation: "l", // landscape
+        unit: "pt", // points, pixels won't work properly
+        format: [canvas.width, canvas.height], // set needed dimensions for any element
       });
 
-      doc.addImage(img, 'JPEG', 0, 0, canvas.width, canvas.height);
-
+      doc.addImage(img, "JPEG", 0, 0, canvas.width, canvas.height);
 
       doc.save("IdCard.pdf");
-
 
       // document.write('<img src="'+img+'"/>');
       // var link = document.createElement("a");
@@ -102,9 +98,9 @@ export default function IDCard() {
     <LayoutOne title="ID Card">
       <SectionTitle title="ID Card" className="-center" />
 
-      {localStorage.getItem('isApproved') === 'pending' ? (
+      {localStorage.getItem("isApproved") === "pending" ? (
         <Pending />
-      ) : localStorage.getItem('isApproved') === 'rejected' ? (
+      ) : localStorage.getItem("isApproved") === "rejected" ? (
         <Rejected />
       ) : (
         <>
@@ -129,10 +125,10 @@ export default function IDCard() {
                             Father's Name - {data.fatherName}
                           </div>
                           <div style={{ fontWeight: "800", fontSize: "20px" }}>
-                            DOB  - {data.dob}
+                            DOB - {data.dob}
                           </div>
                           <div style={{ fontWeight: "800", fontSize: "20px" }}>
-                            Mobile No.  - {data.phoneNumber}
+                            Mobile No. - {data.phoneNumber}
                           </div>
                           <div style={{ fontWeight: "800", fontSize: "20px" }}>
                             Address - {data.address}
@@ -143,7 +139,7 @@ export default function IDCard() {
                     <Col md={10}>
                       <div className="dow-three-image">
                         <img
-                          src={`http://185.201.8.18${data.profileImage}`}
+                          src={`https://185.201.8.18${data.profileImage}`}
                           alt="Profile Image"
                         />
                       </div>
@@ -164,7 +160,7 @@ export default function IDCard() {
               </div>
               <img
                 className="mobile-img"
-                src={`http://185.201.8.18${data.profileImage}`}
+                src={`https://185.201.8.18${data.profileImage}`}
                 alt="Profile Image "
               />
             </div>

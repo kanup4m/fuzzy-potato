@@ -13,7 +13,7 @@ function MobileMenuOpener() {
   };
   return (
     <>
-      <a onClick={onShowDrawer} className="menu-mobile-opener" href="#">
+      <a onClick={onShowDrawer} className="menu-mobile-opener" href={void 0}>
         <i className="fas fa-bars" />
       </a>
       <Drawer

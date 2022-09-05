@@ -2,7 +2,6 @@
   "one": [
     {
       "image": {
-        "background": "F",
         "main": "/assets/images/sections/category/one/1.png"
       },
       "title": "Form 1",
@@ -10,7 +9,6 @@
     },
     {
       "image": {
-        "background": "D",
         "main": "/assets/images/sections/category/one/2.png"
       },
       "title": "Form 2",
@@ -18,7 +16,6 @@
     },
     {
       "image": {
-        "background": "Y",
         "main": "/assets/images/sections/category/one/3.png"
       },
       "title": "Form 3",
@@ -26,7 +23,6 @@
     },
     {
       "image": {
-        "background": "J",
         "main": "/assets/images/sections/category/one/4.png"
       },
       "title": "Form 4",

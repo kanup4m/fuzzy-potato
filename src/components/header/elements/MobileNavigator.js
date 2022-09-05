@@ -8,11 +8,11 @@ function MobileNavigator() {
   const { SubMenu } = Menu;
 
   const [token, setToken] = useState(false);
-  const [admin, setAdmin] = useState()
+  const [admin, setAdmin] = useState();
 
   setTimeout(function () {
-    let data = JSON.parse(localStorage.getItem('isAdmin'));
-    setAdmin(data)
+    let data = JSON.parse(localStorage.getItem("isAdmin"));
+    setAdmin(data);
   }, 50);
 
   useEffect(() => {
@@ -21,7 +21,6 @@ function MobileNavigator() {
 
   const handleClick = (e) => {
     console.log("click ", e);
-    this.setState({ current: e.key });
   };
 
   const handleLogout = () => {
@@ -77,7 +76,7 @@ function MobileNavigator() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {navigatorData.ABOUT.title}
+              {navigatorData.DONATE.title}
             </a>
           </Link>
         </Menu.Item>
@@ -95,16 +94,18 @@ function MobileNavigator() {
         </Menu.Item>
 
         {token ? (
-          admin == true ? (<>
-            <Menu.Item key="logout">
-              <a onClick={handleLogout}>Logout</a>
-            </Menu.Item>
-            <Menu.Item key="login">
-              <Link to="/admin">
-                <a>Admin Panel</a>
-              </Link>
-            </Menu.Item>
-          </>) : (
+          admin == true ? (
+            <>
+              <Menu.Item key="logout">
+                <a onClick={handleLogout}>Logout</a>
+              </Menu.Item>
+              <Menu.Item key="login">
+                <Link to="/admin">
+                  <a>Admin Panel</a>
+                </Link>
+              </Menu.Item>
+            </>
+          ) : (
             <Menu.Item key="logout">
               <a onClick={handleLogout}>Logout</a>
             </Menu.Item>
