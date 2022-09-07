@@ -7,7 +7,7 @@ export default function FooterInfomation() {
   return (
     <div className="footer-info">
       <Link to={"/"}>
-        <span style={{ fontWeight: "800" }}>Yug Srijeta</span>
+        <span style={{ fontWeight: "800" }}>Yug Srijeta U.P.</span>
       </Link>
       <ul>
         <li>Address: VG44+CQ5, Nanpara, Uttar Pradesh 271865</li>

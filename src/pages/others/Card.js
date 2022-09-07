@@ -30,7 +30,7 @@ export default function IDCard() {
     let phoneNumber = localStorage.getItem("phoneNumber");
     let token = localStorage.getItem("token");
     axios
-      .get("https://185.201.8.18/api/users/" + phoneNumber, {
+      .get("https://yugsrijetaup.com/api/users/" + phoneNumber, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -139,7 +139,7 @@ export default function IDCard() {
                     <Col md={10}>
                       <div className="dow-three-image">
                         <img
-                          src={`https://185.201.8.18${data.profileImage}`}
+                          src={`https://yugsrijetaup.com${data.profileImage}`}
                           alt="Profile Image"
                         />
                       </div>
@@ -160,7 +160,7 @@ export default function IDCard() {
               </div>
               <img
                 className="mobile-img"
-                src={`https://185.201.8.18${data.profileImage}`}
+                src={`https://yugsrijetaup.com${data.profileImage}`}
                 alt="Profile Image "
               />
             </div>

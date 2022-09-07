@@ -97,7 +97,7 @@ const Register = () => {
     formData.append("profileImage", fileList[0]);
     setUploading(true);
 
-    fetch("https://185.201.8.18/api/upload/profileImage", {
+    fetch("https://yugsrijetaup.com/api/upload/profileImage", {
       method: "POST",
       body: formData,
     })
@@ -117,7 +117,7 @@ const Register = () => {
         console.log("Success:", values);
 
         axios
-          .post("https://185.201.8.18/api/users/signup", values)
+          .post("https://yugsrijetaup.com/api/users/signup", values)
           .then((res) => {
             console.log(res);
             info();

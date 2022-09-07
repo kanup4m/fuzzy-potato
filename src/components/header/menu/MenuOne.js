@@ -12,7 +12,7 @@ export default function MenuOne() {
         <div className="menu-wrapper">
           <MobileMenuOpener />
           <Link to={"/"}>
-            <p style={{ fontWeight: "800" }}>Yug Srijeta</p>
+            <p style={{ fontWeight: "800" }}>Yug Srijeta U.P.</p>
           </Link>
           <Navigator />
         </div>

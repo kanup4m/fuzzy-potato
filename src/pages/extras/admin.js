@@ -11,7 +11,7 @@ export default function Admin() {
 
   useEffect(() => {
     axios
-      .get("https://185.201.8.18/api/users/")
+      .get("https://yugsrijetaup.com/api/users/")
       .then(function (response) {
         // handle success
         console.log(response.data);

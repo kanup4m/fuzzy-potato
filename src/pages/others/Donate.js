@@ -12,7 +12,34 @@ export default function Donate() {
       <SectionTitle title="Donate" className="-center" />
       <Container>
         <Tabs defaultActiveKey="1" centered type="card" size="large">
-          <Tabs.TabPane tab="NEFT / RTGS" key="1">
+          <Tabs.TabPane tab="DONATE ONLINE" key="1">
+            <br />
+            <br />
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                fontFamily: "CeraPro Medium",
+              }}
+            >
+              <a
+                href="https://rzp.io/l/yugsrijetaup"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button
+                  type="primary"
+                  size="large"
+                  style={{ backgroundColor: "black", borderColor: "black" }}
+                >
+                  Donate here
+                </Button>
+              </a>{" "}
+            </div>
+          </Tabs.TabPane>
+
+          <Tabs.TabPane tab="NEFT / RTGS" key="2">
             <div
               style={{
                 display: "flex",
@@ -43,32 +70,6 @@ export default function Donate() {
                 <h3>Branch Name : NANPARA</h3>
                 <h3>PAN : AACTG2672G</h3>
               </div>
-            </div>
-          </Tabs.TabPane>
-          <Tabs.TabPane tab="DONATE ONLINE" key="2">
-            <br />
-            <br />
-
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                fontFamily: "CeraPro Medium",
-              }}
-            >
-              <a
-                href="https://rzp.io/l/yugsrijetaup"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Button
-                  type="primary"
-                  size="large"
-                  style={{ backgroundColor: "black", borderColor: "black" }}
-                >
-                  Donate via razorpay
-                </Button>
-              </a>{" "}
             </div>
           </Tabs.TabPane>
         </Tabs>
