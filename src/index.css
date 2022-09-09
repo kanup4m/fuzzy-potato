@@ -21,6 +21,10 @@ code {
     background-size: contain !important;
     height: 27vh !important;
   }
+
+  .hero-slider-background img {
+    object-fit: contain !important;
+  }
 }
 
 .anupam {
@@ -35,6 +39,7 @@ code {
 }
 
 .background {
+  background-image: url("./styles/images/pages/one.jpg");
   height: 16em;
   display: flex;
   align-items: center;
