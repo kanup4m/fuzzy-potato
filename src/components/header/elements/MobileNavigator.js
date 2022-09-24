@@ -37,15 +37,17 @@ function MobileNavigator() {
       >
         <Menu key="homepage" title={navigatorData.HOME.title}></Menu>
 
-        {/* <SubMenu key="activities" title={navigatorData.ACTIVITIES.title}>
-          {navigatorData.ACTIVITIES.subMenu.map((item) => (
-            <Menu.Item key={item.title}>
-              <Link to={item.href}>
-                <a> {item.title}</a>
-              </Link>
-            </Menu.Item>
-          ))}
-        </SubMenu> */}
+        <Menu.Item key="idcard">
+          <Link to={navigatorData.IDCARD.href}>
+            <a
+              href="https://ant.design"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              YugSrijeta {navigatorData.IDCARD.title}
+            </a>
+          </Link>
+        </Menu.Item>
 
         <Menu.Item key="gallery">
           <Link to={navigatorData.GALLERY.href}>

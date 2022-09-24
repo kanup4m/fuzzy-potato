@@ -41,16 +41,17 @@ export default function Admin() {
                         {/* <img src={item.profileImage} alt="Profile photo" /> */}
                         <Image
                           // width={200}
-                          src={item.profileImage}
+                          src={`https://yugsrijetaup.com/images/${item.profileImage}`}
                         />
                       </div>
                       <h2>Name : {item.name}</h2>
-                      <h2>Age : {item.age}</h2>
+                      <h2>DOB : {item.dob}</h2>
                       <h2>Gender : {item.gender}</h2>
                       <h2>Pincode : {item.pinCode} </h2>
                       <h2>District : {item.district} </h2>
                       <h2>State : {item.state} </h2>
                       <h2>Mobile No. : {item.phoneNumber} </h2>
+                      <h2>User Type : {item.userType} </h2>
                       <br />
                       <Row
                         style={{

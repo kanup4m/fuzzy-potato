@@ -200,7 +200,8 @@ const Register = () => {
                         rules={[
                           {
                             required: true,
-                            message: "Please input your phone number!",
+                            pattern: new RegExp(/^[6-9]\d{9}$/gm),
+                            message: "Please enter correct phone number!",
                           },
                         ]}
                       >

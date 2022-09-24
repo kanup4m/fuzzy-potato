@@ -111,7 +111,15 @@ export default function IDCard() {
           {isDesktop ? (
             <div className="dow-three" ref={node}>
               <Container>
-                <div className="dow-three-wrapper">
+                <div
+                  className={`dow-three-${
+                    data.userType === "ATITHI"
+                      ? "wrapper"
+                      : data.userType === "SHIVIRARTHI"
+                      ? "new"
+                      : "abc"
+                  }`}
+                >
                   <Row style={{ justifyContent: "center " }}>
                     <Col md={12}>
                       <div className="dow-three-content">
@@ -149,7 +157,7 @@ export default function IDCard() {
                           src={`https://yugsrijetaup.com/images/${data.profileImage}`}
                           alt="Profile Image"
                           style={{ width: "250px", height: "180px" }}
-                          crossorigin
+                          crossOrigin="true"
                         />
                         {/* <Image
                         width={250}
@@ -178,7 +186,7 @@ export default function IDCard() {
                   src={`https://yugsrijetaup.com/images/${data.profileImage}`}
                   alt="Profile Image "
                   style={{ width: "100px", height: "130px" }}
-                  crossorigin
+                  crossOrigin="true"
                 />
               </div>
             </div>

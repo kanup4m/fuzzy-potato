@@ -6,6 +6,8 @@ import Container from "../other/Container";
 import SectionTitle from "../other/SectionTitle";
 import Logo from "../../styles/images/logo.png";
 import Banner from "../../styles/images/pages/Banner.jpeg";
+import Banner2 from "../../styles/images/pages/33.jpeg";
+import Banner3 from "../../styles/images/pages/44.jpeg";
 
 const contentStyle = {
   //   height: "160px",
@@ -102,22 +104,17 @@ function Introduction() {
         <Carousel autoplay arrows {...settings}>
           <div>
             <h3 style={contentStyle}>
-              <Image src={Banner} />
+              <Image src={Banner} preview={false} />
             </h3>
           </div>
           <div>
             <h3 style={contentStyle}>
-              <Image src={Banner} />
+              <Image src={Banner2} preview={false} />
             </h3>
           </div>
           <div>
             <h3 style={contentStyle}>
-              <Image src={Banner} />
-            </h3>
-          </div>
-          <div>
-            <h3 style={contentStyle}>
-              <Image src={Banner} />
+              <Image src={Banner3} preview={false} />
             </h3>
           </div>
         </Carousel>

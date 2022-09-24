@@ -32,20 +32,11 @@ function Navigator() {
         </Link>
       </li>
 
-      {/* <li className="navigation-item -toggleable">
-        <Link to={navigatorData.ACTIVITIES.href}>
-          <a className="navigation-item__title">{navigatorData.ACTIVITIES.title}</a>
+      <li className="navigation-item">
+        <Link to={navigatorData.IDCARD.href}>
+          <a className="navigation-item__title">{navigatorData.IDCARD.title}</a>
         </Link>
-        <ul className="navigation-item__submenu">
-          {navigatorData.ACTIVITIES.subMenu.map((item, index) => (
-            <li key={index}>
-              <Link to={item.href}>
-                <a>{item.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </li> */}
+      </li>
 
       <li className="navigation-item">
         <Link to={navigatorData.GALLERY.href}>

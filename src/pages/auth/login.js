@@ -58,7 +58,8 @@ const Login = () => {
                     rules={[
                       {
                         required: true,
-                        message: "Adhaar Number is required!",
+                        pattern: new RegExp(/^[6-9]\d{9}$/gm),
+                        message: "Please enter correct number",
                       },
                     ]}
                   >

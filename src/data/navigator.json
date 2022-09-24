@@ -36,12 +36,12 @@
       {
         "title": "Books",
         "href": "/downloads/books"
-      },
-      {
-        "title": "ID Card",
-        "href": "/downloads/card"
       }
     ]
+  },
+  "IDCARD" :{
+        "title": "ID Card",
+        "href": "/downloads/card"
   },
   "ABOUT": {
     "title": "About us",
