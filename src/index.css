@@ -57,7 +57,7 @@ code {
 
 .mobile-img {
   width: 25%;
-  padding-top: 4em;
+  padding-top: 5em;
 }
 
 .background-text > p {
@@ -66,4 +66,14 @@ code {
 
 .background-text {
   padding-top: 6em;
+}
+
+/* --- TO HIDE DEFAULT SHIT AROOW IN HOMEPAGE CAROUSEL ---- */
+
+.ant-carousel .slick-next:before {
+  content: "" !important;
+}
+
+.ant-carousel .slick-prev:before {
+  content: "" !important;
 }

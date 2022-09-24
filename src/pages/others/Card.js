@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState, useRef } from "react";
 import html2canvas from "html2canvas";
 import { DownloadOutlined } from "@ant-design/icons";
@@ -46,52 +47,55 @@ export default function IDCard() {
       });
   }, []);
   const Download = (e) => {
-    html2canvas(node.current).then((canvas) => {
-      // document.body.appendChild(canvas)
-      var img = canvas.toDataURL("image/png");
-      // if (isDesktop) {
-      //   var pdf = new jsPDF({
-      //     orientation: "landscape",
-      //     unit: "in",
-      //     format: [14, 14]
-      //   });
+    html2canvas(node.current, { allowTaint: false, useCORS: true }).then(
+      (canvas) => {
+        // document.body.appendChild(canvas)
+        var img = canvas.toDataURL("image/png");
 
-      //   pdf.setFontSize(30)
-      //   pdf.text("ID Card", 6, 1);
-      //   pdf.addImage(img, 'JPEG', 0, 2);
-      //   // pdf.output('dataurlnewwindow');
-      //   pdf.save("IdCard.pdf");
+        // if (isDesktop) {
+        //   var pdf = new jsPDF({
+        //     orientation: "landscape",
+        //     unit: "in",
+        //     format: [14, 14]
+        //   });
 
-      // }
-      // else {
-      //   var pdf = new jsPDF({
-      //     orientation: "potrait",
-      //     unit: "in",
-      //     format: [8, 8]
-      //   });
+        //   pdf.setFontSize(30)
+        //   pdf.text("ID Card", 6, 1);
+        //   pdf.addImage(img, 'JPEG', 0, 2);
+        //   // pdf.output('dataurlnewwindow');
+        //   pdf.save("IdCard.pdf");
 
-      //   pdf.setFontSize(30)
-      //   pdf.text("ID Card", 3, 1);
-      //   pdf.addImage(img, 'JPEG', 0.2, 2);
-      //   pdf.save("IdCard.pdf");
-      // }
+        // }
+        // else {
+        //   var pdf = new jsPDF({
+        //     orientation: "potrait",
+        //     unit: "in",
+        //     format: [8, 8]
+        //   });
 
-      var doc = new jsPDF({
-        orientation: "l", // landscape
-        unit: "pt", // points, pixels won't work properly
-        format: [canvas.width, canvas.height], // set needed dimensions for any element
-      });
+        //   pdf.setFontSize(30)
+        //   pdf.text("ID Card", 3, 1);
+        //   pdf.addImage(img, 'JPEG', 0.2, 2);
+        //   pdf.save("IdCard.pdf");
+        // }
 
-      doc.addImage(img, "JPEG", 0, 0, canvas.width, canvas.height);
+        var doc = new jsPDF({
+          orientation: "l", // landscape
+          unit: "pt", // points, pixels won't work properly
+          format: [842, 596], // set needed dimensions for any element
+        });
 
-      doc.save("IdCard.pdf");
+        doc.addImage(img, "JPEG", 20, 20, 800, 400);
 
-      // document.write('<img src="'+img+'"/>');
-      // var link = document.createElement("a");
-      // link.download = "id_card.png";
-      // link.href = canvas.toDataURL();
-      // link.click();
-    });
+        doc.save("IdCard.pdf");
+
+        // document.write('<img src="'+img+'"/>');
+        // var link = document.createElement("a");
+        // link.download = "id_card.png";
+        // link.href = canvas.toDataURL();
+        // link.click();
+      }
+    );
   };
 
   return (
@@ -136,12 +140,22 @@ export default function IDCard() {
                         </div>
                       </div>
                     </Col>
-                    <Col md={10}>
-                      <div className="dow-three-image">
+                    <Col
+                      md={10}
+                      style={{ display: "flex", flexDirection: "row-reverse" }}
+                    >
+                      <div>
                         <img
-                          src={`https://yugsrijetaup.com${data.profileImage}`}
+                          src={`https://yugsrijetaup.com/images/${data.profileImage}`}
                           alt="Profile Image"
+                          style={{ width: "250px", height: "180px" }}
+                          crossorigin
                         />
+                        {/* <Image
+                        width={250}
+                        height={180}
+                        src={`https://yugsrijetaup.com/images/${data.profileImage}`}
+                      /> */}
                       </div>
                     </Col>
                   </Row>
@@ -158,11 +172,15 @@ export default function IDCard() {
                 <p>Mobile No. : {data.phoneNumber}</p>
                 <p>Address. : {data.address}</p>
               </div>
-              <img
-                className="mobile-img"
-                src={`https://yugsrijetaup.com${data.profileImage}`}
-                alt="Profile Image "
-              />
+              <div>
+                <img
+                  className="mobile-img"
+                  src={`https://yugsrijetaup.com/images/${data.profileImage}`}
+                  alt="Profile Image "
+                  style={{ width: "100px", height: "130px" }}
+                  crossorigin
+                />
+              </div>
             </div>
           )}
           <br />
