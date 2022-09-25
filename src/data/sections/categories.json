@@ -5,28 +5,33 @@
         "main": "/assets/images/sections/category/one/1.png"
       },
       "title": "Form 1",
-      "download": "Download"
+      "download": "Download",
+      "link": ""
+
     },
     {
       "image": {
         "main": "/assets/images/sections/category/one/2.png"
       },
       "title": "Form 2",
-      "download": "Download"
+      "download": "Download",
+      "link": ""
     },
     {
       "image": {
         "main": "/assets/images/sections/category/one/3.png"
       },
       "title": "Form 3",
-      "download": "Download"
+      "download": "Download",
+      "link": ""
     },
     {
       "image": {
         "main": "/assets/images/sections/category/one/4.png"
       },
       "title": "Form 4",
-      "download": "Download"
+      "download": "Download",
+      "link": ""
     }
   ]
 }

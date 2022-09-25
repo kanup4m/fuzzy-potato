@@ -38,7 +38,7 @@ code {
   /* (853 / 1280 * 100) */
 }
 
-.background {
+.background-old {
   background-image: url("./styles/images/pages/one.jpg");
   height: 16em;
   display: flex;
@@ -49,7 +49,24 @@ code {
   background-repeat: no-repeat;
 }
 
-.background > h4 {
+.background-old > h4 {
+  color: #000;
+  font-size: 2em;
+  font-family: sans-serif;
+}
+
+.background-new {
+  background-image: url("./styles/images/pages/new.jpeg");
+  height: 16em;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.background-new > h4 {
   color: #000;
   font-size: 2em;
   font-family: sans-serif;

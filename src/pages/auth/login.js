@@ -58,7 +58,7 @@ const Login = () => {
                     rules={[
                       {
                         required: true,
-                        pattern: new RegExp(/^[6-9]\d{9}$/gm),
+                        pattern: new RegExp(/^[0-9]\d{9}$/gm),
                         message: "Please enter correct number",
                       },
                     ]}

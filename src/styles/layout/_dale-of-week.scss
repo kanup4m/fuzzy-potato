@@ -170,7 +170,7 @@
   &-content {
     padding: 0 emCal(7, 15);
     position: relative;
-    left: 8em;
+    left: 3em;
 
     h5 {
       @include typo($fsz: emCal(16, 30), $color: setColor(green), $fw: 600);
@@ -228,7 +228,7 @@
     background-color: #fff3dd;
     background-image: url('../images/pages/one.jpg');
     background-repeat: no-repeat;
-    width: 100%;
+    width: 98%;
     background-size: cover;
     background-position: center;
   }
@@ -239,7 +239,7 @@
       background-color: #fff3dd;
       background-image: url('../images/pages/new.jpeg');
       background-repeat: no-repeat;
-      width: 100%;
+      width: 98%;
       background-size: cover;
       background-position: center;
     }

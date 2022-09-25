@@ -1,0 +1,52 @@
+{
+    "one": [
+      {
+        "image": {
+          "main": "/assets/images/sections/category/one/1.png"
+        }, 
+        "title": "Kishor Sanskaar Shala",
+        "download": "Download",
+        "link": "https://drive.google.com/file/d/1IiFTLsqIMT8rSJFumtFJLg0nQv1dI5TB/view?usp=sharing"
+      },
+      {
+        "image": {
+          "main": "/assets/images/sections/category/one/2.png"
+        },
+        "title": "Naari Jagran",
+        "download": "Download",
+        "link": "https://drive.google.com/file/d/1rnMrsyBDpS6nP2gQUkIu2xa5nUWBQlRa/view?usp=sharing"
+      },
+      {
+        "image": {
+          "main": "/assets/images/sections/category/one/2.png"
+        },
+        "title": "Sadvaakya",
+        "download": "Download",
+        "link": "https://drive.google.com/file/d/1PCUw7GbuGc0YS9dVWhusJ6eRs8wag4hn/view?usp=sharing"
+      },
+      {
+        "image": {
+          "main": "/assets/images/sections/category/one/2.png"
+        },
+        "title": "Taruputra Mahayagya",
+        "download": "Download",
+        "link": "https://drive.google.com/file/d/1g8UWd9wmoo5mgXm21NGss_mYVvkEzMPm/view?usp=sharing"
+      },
+      {
+        "image": {
+          "main": "/assets/images/sections/category/one/2.png"
+        },
+        "title": "Yuwa Jagran Karyakarta Margdarshika",
+        "download": "Download",
+        "link": "https://drive.google.com/file/d/13oRCH6Ht0Ba3A5vZNGFs-jWLOetf2Z39/view?usp=sharing"
+      },
+      {
+        "image": {
+          "main": "/assets/images/sections/category/one/2.png"
+        },
+        "title": "Yuwa Chetna Jagran Margdarshika",
+        "download": "Download",
+        "link": "https://drive.google.com/file/d/1Y_9jYhAWEWAZBC2ww0-2OIwZ1g8OeqkY/view?usp=sharing"
+      }
+    ]
+  }
