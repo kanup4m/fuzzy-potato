@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Avatar, Image, Row, Col, Empty } from "antd";
+import { message, Image, Row, Col, Empty } from "antd";
 import axios from "axios";
 import LayoutOne from "../../components/layout/LayoutOne";
 import SectionTitle from "../../components/other/SectionTitle";
@@ -8,27 +8,61 @@ import { Link } from "react-router-dom";
 
 export default function Admin() {
   const [data, setData] = useState();
+  const [state, setState] = useState("");
 
   useEffect(() => {
     axios
       .get("https://yugsrijetaup.com/api/users/")
       .then(function (response) {
-        // handle success
-        console.log(response.data);
         setData(response.data);
       })
       .catch(function (error) {
-        // handle error
-        console.log(error);
+        message.error("Something went wrong");
       });
-  }, []);
+  }, [state]);
+
+  const handleApprove = (data) => {
+    axios
+      .get(`https://yugsrijetaup.com/api/users/approve/${data}`)
+      .then(function (response) {
+        message.success({
+          content: response.data.message,
+          duration: 10,
+          style: {
+            fontSize: "20px",
+            fontWeight: "bolder",
+          },
+        });
+        setState("approve");
+      })
+      .catch(function (error) {
+        console.log(error);
+        message.error(error.data.error);
+      });
+  };
+
+  const handleReject = (data) => {
+    axios
+      .get(`https://yugsrijetaup.com/api/users/reject/${data}`)
+      .then(function (response) {
+        message.success({
+          content: response.data.message,
+          style: {
+            fontSize: "20px",
+            fontWeight: "bolder",
+          },
+        });
+        setState("reject");
+      })
+      .catch(function (error) {
+        console.log(error);
+        message.error(error.data.error);
+      });
+  };
 
   return (
     <LayoutOne title="Homepage 2">
       <SectionTitle title="Admin Panel" className="-center" />
-
-      {/* <CategoriesTwo data={data} /> */}
-
       <div className="categories-one">
         <Container>
           <Row gutter={[{ sm: 15, md: 15 }]}>
@@ -38,10 +72,10 @@ export default function Admin() {
                   <Link to={"#"}>
                     <div className="categories-one-item">
                       <div className="categories-one-item__image">
-                        {/* <img src={item.profileImage} alt="Profile photo" /> */}
                         <Image
                           // width={200}
                           src={`https://yugsrijetaup.com/images/${item.profileImage}`}
+                          preview={false}
                         />
                       </div>
                       <h2>Name : {item.name}</h2>
@@ -59,8 +93,27 @@ export default function Admin() {
                           justifyContent: "space-evenly",
                         }}
                       >
-                        <Col>Approve</Col>
-                        <Col>Reject</Col>
+                        {/* {state === "approve" ? (
+                          <button>Approved</button>
+                        ) : state === "reject" ? (
+                          <button>Rejected</button>
+                        ) : (
+                          <>
+                            {" "}
+                            <Col onClick={handleApprove(item.phoneNumber)}>
+                              Approve
+                            </Col>
+                            <Col onClick={handleReject(item.phoneNumber)}>
+                              Reject
+                            </Col>
+                          </>
+                        )} */}
+                        <Col onClick={() => handleApprove(item.phoneNumber)}>
+                          Approve
+                        </Col>
+                        <Col onClick={() => handleReject(item.phoneNumber)}>
+                          Reject
+                        </Col>
                       </Row>
                     </div>
                   </Link>

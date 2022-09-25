@@ -61,7 +61,7 @@ export default function IDCard() {
         var width = doc.internal.pageSize.getWidth();
         var height = doc.internal.pageSize.getHeight();
 
-        doc.addImage(img, "jpeg", 0, position, imgWidth, imgHeight);
+        doc.addImage(img, "jpeg", 0, position, 91, 64);
 
         doc.addPage();
         doc.addImage(img1, "jpeg", 0, 0, width, height);

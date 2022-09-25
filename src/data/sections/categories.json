@@ -3,35 +3,18 @@
     {
       "image": {
         "main": "/assets/images/sections/category/one/1.png"
-      },
-      "title": "Form 1",
+      }, 
+      "title": "Super 50 arhtaaye",
       "download": "Download",
-      "link": ""
-
+      "link": "https://drive.google.com/file/d/1hSXGE0G--PJp3v0OalI3vwyJW7Qtu0Hm/view"
     },
     {
       "image": {
         "main": "/assets/images/sections/category/one/2.png"
       },
-      "title": "Form 2",
+      "title": "Janpadeey Sankalp Patra",
       "download": "Download",
-      "link": ""
-    },
-    {
-      "image": {
-        "main": "/assets/images/sections/category/one/3.png"
-      },
-      "title": "Form 3",
-      "download": "Download",
-      "link": ""
-    },
-    {
-      "image": {
-        "main": "/assets/images/sections/category/one/4.png"
-      },
-      "title": "Form 4",
-      "download": "Download",
-      "link": ""
+      "link": "https://drive.google.com/file/d/1YMeLD3NDvmjVj99LnjmJzNAuNfTnX0Vs/view?usp=sharing"
     }
   ]
 }
