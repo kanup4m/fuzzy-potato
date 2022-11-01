@@ -17,6 +17,7 @@ import Refund from "./pages/extras/return";
 import ProtectedRoute from "./pages/auth/ProtectedRoute";
 import AdminProtected from "./pages/extras/AdminProtected";
 import Admin from "./pages/extras/admin";
+import Update from "./pages/auth/Update";
 
 function App() {
   return (
@@ -64,6 +65,16 @@ function App() {
             <AdminProtected>
               {" "}
               <Admin />{" "}
+            </AdminProtected>
+          }
+        />
+
+        <Route
+          path="/update-details"
+          element={
+            <AdminProtected>
+              {" "}
+              <Update />{" "}
             </AdminProtected>
           }
         />

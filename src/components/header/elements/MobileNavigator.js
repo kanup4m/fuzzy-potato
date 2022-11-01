@@ -11,12 +11,12 @@ function MobileNavigator() {
   const [admin, setAdmin] = useState();
 
   setTimeout(function () {
-    let data = JSON.parse(localStorage.getItem("isAdmin"));
+    let data = JSON.parse(sessionStorage.getItem("isAdmin"));
     setAdmin(data);
   }, 50);
 
   useEffect(() => {
-    setToken(localStorage.getItem("token"));
+    setToken(sessionStorage.getItem("token"));
   }, []);
 
   const handleClick = (e) => {
@@ -24,7 +24,7 @@ function MobileNavigator() {
   };
 
   const handleLogout = () => {
-    localStorage.clear();
+    sessionStorage.clear();
     navigate("/", { replace: true });
     window.location.reload();
   };
@@ -98,13 +98,19 @@ function MobileNavigator() {
         {token ? (
           admin == true ? (
             <>
-              <Menu.Item key="logout">
-                <a onClick={handleLogout}>Logout</a>
-              </Menu.Item>
+            
               <Menu.Item key="login">
                 <Link to="/admin">
                   <a>Admin Panel</a>
                 </Link>
+              </Menu.Item>
+              <Menu.Item key="login">
+                <Link to="/update-details">
+                  <a>Update</a>
+                </Link>
+              </Menu.Item>
+                <Menu.Item key="logout">
+                <a onClick={handleLogout}>Logout</a>
               </Menu.Item>
             </>
           ) : (

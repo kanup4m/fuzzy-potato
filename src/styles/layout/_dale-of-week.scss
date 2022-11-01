@@ -223,26 +223,34 @@
   }
 
   &-wrapper {
-    padding-top: 22.7em;
-    padding-bottom: 6em;
+    position: relative;
+      height: 500px;
+      width: 400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     background-color: #fff3dd;
-    background-image: url('../images/pages/one.jpg');
+    background-image: url('../images/pages/id_logo.jpeg');
     background-repeat: no-repeat;
-    width: 98%;
-    background-size: cover;
-    background-position: center;
+    background-size: 100% 100%;
+      background-position: center center;
+      padding-top: 11em;
   }
 
     &-new {
-      padding-top: 22.7em;
-      padding-bottom: 6em;
+      position: relative;
+        height: 500px;
+        width: 400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       background-color: #fff3dd;
-      background-image: url('../images/pages/new.jpeg');
+      background-image: url('../images/pages/id_shiv.jpeg');
       background-repeat: no-repeat;
-      width: 98%;
-      background-size: cover;
-      background-position: center;
-    }
-
-  
-}
+        background-size: 100% 100%;
+          background-position: center center;
+          padding-top: 11em;
+        }
+        }

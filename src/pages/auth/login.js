@@ -11,16 +11,16 @@ const Login = () => {
   const onFinish = (values) => {
     setLoadings(true);
     console.log("Success:", values);
-    localStorage.setItem("phoneNumber", values.phoneNumber);
+    sessionStorage.setItem("phoneNumber", values.phoneNumber);
     axios
       .post("https://yugsrijetaup.com/api/users/login", values)
       .then(function (response) {
         const result = "token" in response.data;
         if (result) {
           const { token, isApproved, isAdmin } = response.data;
-          localStorage.setItem("token", token);
-          localStorage.setItem("isApproved", isApproved);
-          localStorage.setItem("isAdmin", isAdmin);
+          sessionStorage.setItem("token", token);
+          sessionStorage.setItem("isApproved", isApproved);
+          sessionStorage.setItem("isAdmin", isAdmin);
           message.success("Welcome");
           setLoadings(false);
           window.location = "/";

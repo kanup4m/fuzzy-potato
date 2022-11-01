@@ -39,14 +39,16 @@ code {
 }
 
 .background-old {
-  background-image: url("./styles/images/pages/one.jpg");
-  height: 16em;
+  position: relative;
+  background-image: url("./styles/images/pages/id_logo.jpeg");
+  height: 50vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
   background-size: contain;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
+  padding-top: 6.5em;
 }
 
 .background-old > h4 {
@@ -56,14 +58,16 @@ code {
 }
 
 .background-new {
-  background-image: url("./styles/images/pages/new.jpeg");
-  height: 16em;
+  position: relative;
+  background-image: url("./styles/images/pages/id_shiv.jpeg");
+  height: 50vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
   background-size: contain;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
+  padding-top: 6.5em;
 }
 
 .background-new > h4 {
@@ -73,19 +77,34 @@ code {
 }
 
 .mobile-img {
-  width: 25%;
-  padding-top: 5em;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 36%;
+  left: 36%;
 }
 
 .background-text > p {
-  font-size: 0.5em;
+  font-size: 0.6em;
+  font-weight: 700;
 }
 
 .background-text {
-  padding-top: 6em;
+  padding-top: 1em;
+  position: absolute;
+  top: 60%;
+  left: 28%;
 }
 
-/* --- TO HIDE DEFAULT SHIT AROOW IN HOMEPAGE CAROUSEL ---- */
+.bg-text {
+  position: absolute;
+  top: 60%;
+  left: 23%;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* --- TO HIDE DEFAULT SHIT ARROW IN HOMEPAGE CAROUSEL ---- */
 
 .ant-carousel .slick-next:before {
   content: "" !important;
